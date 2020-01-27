@@ -1,0 +1,19 @@
+#rasterize svg
+inkscape -z -e template.png /usr/share/icons/Numix/22/status/telegram-panel.svg -h 22 -w 22
+
+
+# From 1-99
+for i in {1..99} ; do convert  template.png  -page -4-4 -background none -flatten  \
+\( +page -fill "#ececec" -stroke gray -draw "circle 14,14, 14,21"  \) \
+\( +stroke -font Helvetica  -pointsize 9 -gravity center -draw "fill black text 4,5 '$i' " \) \
+icon_22_$i.png ; done
+
+# From 100-999
+for i in {100..999} ; do convert  template.png  -page -4-4 -background none -flatten  \                    
+\( +page -fill "#ececec" -stroke gray  -draw "roundrectangle 3,8, 21,21 6,6 "  \) \
+\( +stroke -font Verdana -pointsize 8 -gravity center -draw "fill black text 2,4 '$i' " \) \
+icon_22_$i.png ; done
+
+
+# For preview
+##montage  icon_22_{1..25}.png -tile 5x5 -geometry +2+2 -background transparent  preview.png     
