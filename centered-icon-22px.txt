@@ -1,0 +1,4 @@
+for i in {1..9} ; do convert  template.png   \                                                  
+\(  -stroke black -fill "rgba(0, 0, 0, 0.8)"   -draw "circle 16,16, 16,21"  \) \
+\(  +stroke -font Verdana  -pointsize 9 -gravity center  -draw "fill white text 6,5 '$i' " \) \
+icon_22_$i.png ; done
